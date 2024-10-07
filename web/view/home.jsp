@@ -4,6 +4,8 @@
     Author     : PC
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -82,6 +84,7 @@
 						</div>
 						<div class="left-menu mb-30">
 							<ul>
+                                                       
 								<li><a href="#">Jackets<span>(15)</span></a></li>
 								<li><a href="#">weaters<span>(9)</span></a></li>
 								<li><a href="#">Bottoms<span>(12)</span></a></li>
