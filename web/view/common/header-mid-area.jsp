@@ -18,7 +18,7 @@
 					</div>
 					<div class="col-lg-6 col-md-4 col-12">
 						<div class="logo-area text-center logo-xs-mrg">
-							<a href="index.html"><img src="../img/logo/logo.png" alt="logo" /></a>
+							<a href="index.html"><img src="${pageContext.request.contextPath}/img/logo/logo.png" alt="logo" /></a>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-3 col-12">
@@ -30,7 +30,7 @@
 										<div class="cart-product">
 											<div class="single-cart">
 												<div class="cart-img">
-													<a href="#"><img src="../img/product/1.jpg" alt="book" /></a>
+													<a href="#"><img src="${pageContext.request.contextPath}/img/product/1.jpg" alt="book" /></a>
 												</div>
 												<div class="cart-info">
 													<h5><a href="#">Joust Duffle Bag</a></h5>
@@ -42,7 +42,7 @@
 											</div>
 											<div class="single-cart">
 												<div class="cart-img">
-													<a href="#"><img src="../img/product/3.jpg" alt="book" /></a>
+													<a href="#"><img src="${pageContext.request.contextPath}/img/product/3.jpg" alt="book" /></a>
 												</div>
 												<div class="cart-info">
 													<h5><a href="#">Chaz Kangeroo Hoodie</a></h5>

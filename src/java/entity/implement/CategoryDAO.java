@@ -16,7 +16,7 @@ public class CategoryDAO extends GenericDAO<Category>{
 
     @Override
     public List<Category> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return queryGenericDAO(Category.class);
     }
 
     @Override
@@ -24,4 +24,9 @@ public class CategoryDAO extends GenericDAO<Category>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public static void main(String[] args) {
+        for (Category c : new CategoryDAO().findAll()) {
+            System.out.println(c);
+        }
+    }
 }

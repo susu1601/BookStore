@@ -66,7 +66,7 @@ public abstract class GenericDAO<T> extends DBContext {
                 | NoSuchMethodException
                 | InvocationTargetException
                 | SQLException e) {
-            System.err.println("4USER: Bắn Exception ở hàm query: " + e.getMessage());
+            System.err.println("Mss: Bắn Exception ở hàm query: " + e.getMessage());
         } finally {
             try {
                 // Đóng kết nối và các tài nguyên
@@ -80,7 +80,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     connection.close();
                 }
             } catch (Exception e) {
-                System.err.println("4USER: Bắn Exception ở hàm query: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm query: " + e.getMessage());
             }
         }
         return result;
@@ -149,7 +149,7 @@ public abstract class GenericDAO<T> extends DBContext {
                 | NoSuchMethodException
                 | InvocationTargetException
                 | SQLException e) {
-            System.err.println("4USER: Bắn Exception ở hàm query: " + e.getMessage());
+            System.err.println("Mss: Bắn Exception ở hàm query: " + e.getMessage());
         } finally {
             try {
                 // Đóng kết nối và các tài nguyên
@@ -163,7 +163,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     connection.close();
                 }
             } catch (SQLException e) {
-                System.err.println("4USER: Bắn Exception ở hàm query: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm query: " + e.getMessage());
             }
         }
         return result;
@@ -262,7 +262,7 @@ public abstract class GenericDAO<T> extends DBContext {
             try {
                 connection.rollback();
             } catch (SQLException ex) {
-                System.err.println("4USER: Bắn Exception ở hàm update: " + ex.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm update: " + ex.getMessage());
             }
             return false;
         } finally {
@@ -274,7 +274,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     statement.close();
                 }
             } catch (SQLException e) {
-                System.err.println("4USER: Bắn Exception ở hàm update: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm update: " + e.getMessage());
             }
         }
     }
@@ -313,7 +313,7 @@ public abstract class GenericDAO<T> extends DBContext {
             try {
                 connection.rollback();
             } catch (SQLException ex) {
-                System.err.println("4USER: Bắn Exception ở hàm delete: " + ex.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm delete: " + ex.getMessage());
             }
             return false;
         } finally {
@@ -325,7 +325,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     statement.close();
                 }
             } catch (SQLException e) {
-                System.err.println("4USER: Bắn Exception ở hàm update: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm update: " + e.getMessage());
             }
         }
     }
@@ -405,11 +405,11 @@ public abstract class GenericDAO<T> extends DBContext {
             connection.commit();
         } catch (SQLException e) {
             try {
-                System.err.println("4USER: Bắn Exception ở hàm insert: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm insert: " + e.getMessage());
                 // Hoàn tác giao dịch nếu xảy ra lỗi
                 connection.rollback();
             } catch (SQLException ex) {
-                System.err.println("4USER: Bắn Exception ở hàm insert: " + ex.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm insert: " + ex.getMessage());
             }
         } finally {
             // Đảm bảo đóng kết nối và tài nguyên
@@ -424,7 +424,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     resultSet.close();
                 }
             } catch (SQLException e) {
-                System.err.println("4USER: Bắn Exception ở hàm insert: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm insert: " + e.getMessage());
             }
         }
         // Trả về ID được tạo tự động (nếu có)
@@ -465,11 +465,11 @@ public abstract class GenericDAO<T> extends DBContext {
             connection.commit();
         } catch (SQLException e) {
             try {
-                System.err.println("4USER: Bắn Exception ở hàm insert: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm insert: " + e.getMessage());
                 // Hoàn tác giao dịch nếu xảy ra lỗi
                 connection.rollback();
             } catch (SQLException ex) {
-                System.err.println("4USER: Bắn Exception ở hàm insert: " + ex.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm insert: " + ex.getMessage());
             }
         } finally {
             // Đảm bảo đóng kết nối và tài nguyên
@@ -484,7 +484,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     resultSet.close();
                 }
             } catch (SQLException e) {
-                System.err.println("4USER: Bắn Exception ở hàm insert: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm insert: " + e.getMessage());
             }
         }
         // Trả về ID được tạo tự động (nếu có)
@@ -529,7 +529,7 @@ public abstract class GenericDAO<T> extends DBContext {
             }
 
         } catch (IllegalArgumentException | SQLException e) {
-            System.err.println("4USER: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
+            System.err.println("Mss: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
         } finally {
             try {
                 // Đóng kết nối và các tài nguyên
@@ -543,7 +543,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     connection.close();
                 }
             } catch (SQLException e) {
-                System.err.println("4USER: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
             }
         }
         return total;
@@ -598,7 +598,7 @@ public abstract class GenericDAO<T> extends DBContext {
             }
 
         } catch (IllegalArgumentException | SQLException e) {
-            System.err.println("4USER: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
+            System.err.println("Mss: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
         } finally {
             try {
                 // Đóng kết nối và các tài nguyên
@@ -612,7 +612,7 @@ public abstract class GenericDAO<T> extends DBContext {
                     connection.close();
                 }
             } catch (SQLException e) {
-                System.err.println("4USER: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
+                System.err.println("Mss: Bắn Exception ở hàm findTotalRecord: " + e.getMessage());
             }
         }
         return total;

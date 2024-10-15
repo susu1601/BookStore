@@ -11,11 +11,11 @@
 					<div class="col-lg-6 col-md-6 col-12">
 						<div class="language-area">
 							<ul>
-                                                            <li><img src="../img/flag/1.jpg" alt="flag" /><a href="#">English<i class="fa fa-angle-down"></i></a>
+                                                            <li><img src="${pageContext.request.contextPath}/img/flag/1.jpg" alt="flag" /><a href="#">English<i class="fa fa-angle-down"></i></a>
 									<div class="header-sub">
 										<ul>
-											<li><a href="#"><img src="../img/flag/2.jpg" alt="flag" />france</a></li>
-                                                                                        <li><a href="#"><img src="../img/flag/3.jpg" alt="flag" />croatia</a></li>
+											<li><a href="#"><img src="${pageContext.request.contextPath}/img/flag/2.jpg" alt="flag" />france</a></li>
+                                                                                        <li><a href="#"><img src="${pageContext.request.contextPath}/img/flag/3.jpg" alt="flag" />croatia</a></li>
 										</ul>
 									</div>
 								</li>
