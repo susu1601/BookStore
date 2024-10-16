@@ -6,6 +6,7 @@ package entity.implement;
 
 import dal.GenericDAO;
 import entity.Product;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -24,10 +25,36 @@ public class ProductDAO extends GenericDAO<Product> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public static void main(String[] args) {
-        for (Product p : new ProductDAO().findAll()) {
-            System.out.println(p);
-        }
+//    public static void main(String[] args) {
+//        for (Product p : new ProductDAO().findAll()) {
+//            System.out.println(p);
+//        }
+//    }
+    public Product findById(Product product) {
+        String sql = "SELECT [id]\n"
+                + "      ,[name]\n"
+                + "      ,[image]\n"
+                + "      ,[quantity]\n"
+                + "      ,[price]\n"
+                + "      ,[description]\n"
+                + "      ,[categoryId]\n"
+                + "  FROM [dbo].[Product]\n"
+                + "  where id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("id", product.getId());
+        List<Product> list = queryGenericDAO(Product.class, sql, parameterMap);
+        //neu nhu list ma empty => ko co san pham => tra ve null
+        //nguoc lai list ma ko empty => co san pham => nam o vi tri dau tien => lay ve o vi tri so 0
+        return list.isEmpty() ? null : list.get(0);
+
+    }
+
+    public List<Product> findByCategory(String categoryId) {
+        String sql = "SELECT * FROM [Product]\n"
+                + "where categoryId = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("categoryId", categoryId);
+        return queryGenericDAO(Product.class, sql, parameterMap);
     }
 
 }

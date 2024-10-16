@@ -32,7 +32,10 @@
 	<!-- owl.carousel css -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.css"/>
 	<!-- font-awesome css -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css"/>
+<!--	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css"/>-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" 
+              integrity="sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" 
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- flexslider.css-->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flexslider.css"/>
 	<!-- chosen.min.css-->
@@ -54,21 +57,21 @@
 	<!-- header-area-start -->
 	<header>
 		<!-- header-top-area-start -->
-                <jsp:include page="common/header-top-area.jsp"></jsp:include>
+                <jsp:include page="../common/header-top-area.jsp"></jsp:include>
 		<!-- header-top-area-end -->
 		<!-- header-mid-area-start -->
-                <jsp:include page="common/header-mid-area.jsp"></jsp:include>
+                <jsp:include page="../common/header-mid-area.jsp"></jsp:include>
 		<!-- header-mid-area-end -->
 		<!-- main-menu-area-start -->
-                <jsp:include page="common/main-menu-area.jsp"></jsp:include>
+                <jsp:include page="../common/main-menu-area.jsp"></jsp:include>
 		<!-- main-menu-area-end -->
 		<!-- mobile-menu-area-start -->
-                <jsp:include page="common/mobile-menu-area.jsp"></jsp:include>
+                <jsp:include page="../common/mobile-menu-area.jsp"></jsp:include>
 		<!-- mobile-menu-area-end -->
 	</header>
 	<!-- header-area-end -->
 	<!-- breadcrumbs-area-start -->
-                <jsp:include page="common/breadcrumbs-area.jsp"></jsp:include>
+                <jsp:include page="../common/breadcrumbs-area.jsp"></jsp:include>
 	<!-- breadcrumbs-area-end -->
 	<!-- shop-main-area-start -->
 	<div class="shop-main-area mb-70">
@@ -83,10 +86,10 @@
 							<h4>Category</h4>
 						</div>
 						<div class="left-menu mb-30">
-                                                <c:forEach items="${listCategory}" var="c">
+                                                <c:forEach items="${listCategory}" var="cate">
 							<ul>
                                                      
-								<li><a href="#">${c.name}<span>(4)</span></a></li>
+								<li><a href="home?search=category&categoryId=${cate.id}">${cate.name}<span>(15)</span></a></li>
 								
 							</ul>
                                                 </c:forEach>
@@ -341,8 +344,8 @@
 									<!-- single-product-start -->
 									<div class="product-wrapper mb-40">
 										<div class="product-img">
-											<a href="#">
-												<img src="${p.image}" alt="book" class="primary" />
+											<a href="product-details?id=${p.id}">
+												<img src="${pageContext.request.contextPath}/img/product/1.jpg" alt="book" class="primary" />
 											</a>
 											<div class="quick-view">
 												<a class="action-view" href="#" data-bs-target="#productModal" data-bs-toggle="modal" title="Quick View">
@@ -356,7 +359,7 @@
 											<h4><a href="#">${p.name}</a></h4>
 											<div class="product-price">
 												<ul>
-													<li>${p.price}</li>
+													<li>${p.price}$</li>
 												</ul>
 											</div>
 										</div>
@@ -639,7 +642,7 @@
 	</div>
 	<!-- shop-main-area-end -->
 	<!-- footer-area-start -->
-                <jsp:include page="common/footer.jsp"></jsp:include>
+        <jsp:include page="../common/footer.jsp"></jsp:include>
 	<!-- footer-area-end -->
 	<!-- Modal -->
 	<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
