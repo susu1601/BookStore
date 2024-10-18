@@ -57,21 +57,21 @@
         <!-- header-area-start -->
         <header>
             <!-- header-top-area-start -->
-            <jsp:include page="../common/header-top-area.jsp"></jsp:include>
+            <jsp:include page="../common/homepage/header-top-area.jsp"></jsp:include>
                 <!-- header-top-area-end -->
                 <!-- header-mid-area-start -->
-            <jsp:include page="../common/header-mid-area.jsp"></jsp:include>
+            <jsp:include page="../common/homepage/header-mid-area.jsp"></jsp:include>
                 <!-- header-mid-area-end -->
                 <!-- main-menu-area-start -->
-            <jsp:include page="../common/main-menu-area.jsp"></jsp:include>
+            <jsp:include page="../common/homepage/main-menu-area.jsp"></jsp:include>
                 <!-- main-menu-area-end -->
                 <!-- mobile-menu-area-start -->
-            <jsp:include page="../common/mobile-menu-area.jsp"></jsp:include>
+            <jsp:include page="../common/homepage/mobile-menu-area.jsp"></jsp:include>
                 <!-- mobile-menu-area-end -->
             </header>
             <!-- header-area-end -->
             <!-- breadcrumbs-area-start -->
-        <jsp:include page="../common/breadcrumbs-area.jsp"></jsp:include>
+            <jsp:include page="../common/homepage/breadcrumbs-area.jsp"></jsp:include>
             <!-- breadcrumbs-area-end -->
             <!-- shop-main-area-start -->
             <div class="shop-main-area mb-70">
@@ -326,11 +326,12 @@
                                 </div>
                             </div>
                             <div class="toolbar-sorter">
-                                <span>Sort By</span>
-                                <select id="sorter" class="sorter-options" data-role="sorter">
-                                    <option selected="selected" value="position"> Position </option>
-                                    <option value="name"> Product Name </option>
-                                    <option value="price"> Price </option>
+                                <span>Sort By</span>                           
+                                <select id="sorter" class="sorter-options" data-role="sorter" onchange="window.location.href = '?sort=' + this.value">
+                                    <option value="name_asc" <%= request.getParameter("sort") != null && request.getParameter("sort").equals("name_asc") ? "selected" : "" %>>Product Name (A-Z)</option>
+                                    <option value="name_desc" <%= request.getParameter("sort") != null && request.getParameter("sort").equals("name_desc") ? "selected" : "" %>>Product Name (Z-A)</option>
+                                    <option value="price_asc" <%= request.getParameter("sort") != null && request.getParameter("sort").equals("price_asc") ? "selected" : "" %>>Price (Low to High)</option>
+                                    <option value="price_desc" <%= request.getParameter("sort") != null && request.getParameter("sort").equals("price_desc") ? "selected" : "" %>>Price (High to Low)</option>
                                 </select>
                                 <a href="#"><i class="fa fa-arrow-up"></i></a>
                             </div>
@@ -644,7 +645,7 @@
         </div>
         <!-- shop-main-area-end -->
         <!-- footer-area-start -->
-        <jsp:include page="../common/footer.jsp"></jsp:include>
+        <jsp:include page="../common/homepage/footer.jsp"></jsp:include>
             <!-- footer-area-end -->
             <!-- Modal -->
             <div class="modal fade" id="productModal" tabindex="-1" role="dialog">

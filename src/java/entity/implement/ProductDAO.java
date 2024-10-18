@@ -7,6 +7,8 @@ package entity.implement;
 import constant.CommonConst;
 import dal.GenericDAO;
 import entity.Product;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -64,7 +66,7 @@ public class ProductDAO extends GenericDAO<Product> {
         return queryGenericDAO(Product.class, sql, parameterMap);
     }
 
-     public List<Product> findByName(String keyword, int page) {
+    public List<Product> findByName(String keyword, int page) {
         String sql = "SELECT *\n"
                 + "  FROM [Product]\n"
                 + "  where [name] like ?"
@@ -77,8 +79,8 @@ public class ProductDAO extends GenericDAO<Product> {
         parameterMap.put("fetch", CommonConst.RECORD_PER_PAGE);
         return queryGenericDAO(Product.class, sql, parameterMap);
     }
-     
-     public int findTotalRecordByCategory(String categoryId) {
+
+    public int findTotalRecordByCategory(String categoryId) {
         String sql = "SELECT count(*)\n"
                 + "  FROM Product\n"
                 + "  where categoryId = ?";
@@ -86,8 +88,8 @@ public class ProductDAO extends GenericDAO<Product> {
         parameterMap.put("categoryId", categoryId);
         return findTotalRecordGenericDAO(Product.class, sql, parameterMap);
     }
-     
-      public int findTotalRecordByName(String keyword) {
+
+    public int findTotalRecordByName(String keyword) {
         String sql = "SELECT count(*)\n"
                 + "  FROM Product\n"
                 + "  where [name] like ?";
@@ -95,14 +97,15 @@ public class ProductDAO extends GenericDAO<Product> {
         parameterMap.put("name", "%" + keyword + "%");
         return findTotalRecordGenericDAO(Product.class, sql, parameterMap);
     }
-      
-      public int findTotalRecord() {
+
+    public int findTotalRecord() {
         String sql = "SELECT count(*)\n"
                 + "  FROM Product\n";
         parameterMap = new LinkedHashMap<>();
         return findTotalRecordGenericDAO(Product.class, sql, parameterMap);
     }
-      public List<Product> findByPage(int page) {
+
+    public List<Product> findByPage(int page) {
         String sql = "SELECT *\n"
                 + "  FROM Product\n"
                 + "  ORDER BY id\n"
@@ -114,6 +117,25 @@ public class ProductDAO extends GenericDAO<Product> {
         return queryGenericDAO(Product.class, sql, parameterMap);
 
     }
-      
+
+//       // Hàm sắp xếp theo tên sản phẩm
+//    public List<Product> sortByName(int page, boolean isAscending) {
+//        String sql = "SELECT * FROM Product ORDER BY name " + (isAscending ? "ASC" : "DESC")
+//                   + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+//        parameterMap = new LinkedHashMap<>();
+//        parameterMap.put("offset", (page - 1) * CommonConst.RECORD_PER_PAGE);
+//        parameterMap.put("fetch", CommonConst.RECORD_PER_PAGE);
+//        return queryGenericDAO(Product.class, sql, parameterMap);
+//    }
+//
+//    // Hàm sắp xếp theo giá sản phẩm
+//    public List<Product> sortByPrice(int page, boolean isAscending) {
+//        String sql = "SELECT * FROM Product ORDER BY price " + (isAscending ? "ASC" : "DESC")
+//                   + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+//        parameterMap = new LinkedHashMap<>();
+//        parameterMap.put("offset", (page - 1) * CommonConst.RECORD_PER_PAGE);
+//        parameterMap.put("fetch", CommonConst.RECORD_PER_PAGE);
+//        return queryGenericDAO(Product.class, sql, parameterMap);
+//    }
 
 }
